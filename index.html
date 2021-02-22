@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💵 Pocket Bank 🤑</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="icon.svg" type="image/x-icon">
+</head>
+<body>
+    <div class="background"></div>
+    <span class="helper">
+        <div class="alpha-container">
+            <span class="container">
+                <img class="icon" src="icon.svg" alt="Bank Icon">
+                <h1>Pocket Bank</h1>
+                <form class="join-form" action="join" method="post">
+                    <input class="input name" type="text" name="Username" id="user" placeholder="Nombre">
+                    <input class="input code" type="text" name="Room" id="room-id" placeholder="Codigo de sala">
+                    <div class="button-container">
+                        <button type="submit">Unirse a la sala</button>
+                    </div>
+                </form>
+            </span>
+            <span id="create" class="room-container disable">
+                <div class="temp-container">
+                    <h1>Crear Sala</h1>
+                    <form class="create-form" action="create" method="post">
+                        <input class="input name" type="text" name="Username" id="user" placeholder="Nombre">
+                        <input class="input code" type="text" name="Room" id="room-id" placeholder="Codigo de sala">
+                        <div class="button-container">
+                            <button type="submit">Crear sala</button>
+                        </div>
+                    </form>
+                </div>
+                <img id="menuBtn" class="menu" src="menu.svg" alt="Crear Sala">
+            </span>
+        </div>
+    </span>
+</body>
+<script>
+    const room = document.getElementById("create")
+    const menuBtn = document.getElementById("menuBtn")
+    menuBtn.addEventListener("click",(e)=>{
+        e.stopPropagation()
+        if(room.className == "room-container disable"){
+            room.className = "room-container enable"
+        }else{
+            room.className = "room-container disable"
+        }
+    })
+    room.addEventListener("click",(e)=>{
+        if(room.className=="room-container disable"){
+            room.className = "room-container enable"
+        }
+    });
+</script>
+</html>
